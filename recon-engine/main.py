@@ -7,7 +7,8 @@ from typing import List, Optional
 
 app = FastAPI()
 
-
+class HelloWorldMessage(BaseModel):
+    message: str
 class TransactionDetail(BaseModel):
     type: str
     amount: float
@@ -24,9 +25,9 @@ class ReconciliationData(BaseModel):
 
 def send_email(reconciliation_data: ReconciliationData):
     # Email configuration
-    sender_email = "your_email@gmail.com"
-    receiver_email = "recipient_email@example.com"
-    password = "your_email_password"
+    sender_email = "ntonsitemwamlima11@gmail.com"
+    receiver_email = "tonyborady@gmail.com"
+    password = "@!MAisho2022"
 
     # Create message container
     msg = MIMEMultipart('alternative')
@@ -69,8 +70,8 @@ async def receive_reconciliation_data(data: ReconciliationData):
     print("Received reconciliation data:")
     print(data)
 
-    # Send reconciliation data via email
-    send_email(data)
+    # # Send reconciliation data via email
+    #send_email(data)
 
     return {"message": "Reconciliation data received and sent via email successfully"}
 
@@ -78,4 +79,4 @@ async def receive_reconciliation_data(data: ReconciliationData):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="localhost", port=5000)
+    uvicorn.run(app, port=10000)
