@@ -27,7 +27,7 @@ def send_email(reconciliation_data: ReconciliationData):
     # Email configuration
     sender_email = "ntonsitemwamlima11@gmail.com"
     receiver_email = "tonyborady@gmail.com"
-    password = "@!MAisho2022"
+    password = ""
 
     # Create message container
     msg = MIMEMultipart('alternative')
@@ -74,6 +74,10 @@ async def receive_reconciliation_data(data: ReconciliationData):
     #send_email(data)
 
     return {"message": "Reconciliation data received and sent via email successfully"}
+
+@app.get("/test")
+async def read_root():
+    return {"message": "Hello, World!"}
 
 
 if __name__ == "__main__":
